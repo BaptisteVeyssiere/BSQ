@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 11:28:26 2015 Baptiste veyssiere
-** Last update Wed Dec  2 00:25:20 2015 Baptiste veyssiere
+** Last update Wed Dec  2 00:35:17 2015 Baptiste veyssiere
 */
 
 #include <sys/types.h>
@@ -33,6 +33,17 @@ void	square(char **tab, int length[2])
   get_max_square_at(tab, length, &max_size);
 }
 
+void	get_the_sizes(int length[2], char *str)
+{
+  get_nbr_of_lines(&length[0], str);
+  if (length[0] < 1)
+    {
+      write(2, "Please enter a number of line\n", 30);
+      exit(1);
+    }
+  get_nbr_of_column(&length[1], str);
+}
+
 int	main(int ac, char **av)
 {
   char	**tab;
@@ -47,13 +58,7 @@ int	main(int ac, char **av)
     }
   length[0] = 0;
   length[1] = 0;
-  get_nbr_of_lines(&length[0], av[1]);
-  if (length[0] < 1)
-    {
-      write(2, "Please enter a number of line\n", 30);
-      exit(1);
-    }
-  get_nbr_of_column(&length[1], av[1]);
+  get_the_sizes(length, av[1]);
   i = 0;
   str = get_tab(av[1], length[0], length[1]);
   tab = malloc(sizeof(*tab) * length[0]);
