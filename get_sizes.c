@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 14:35:16 2015 Baptiste veyssiere
-** Last update Tue Dec  1 19:26:13 2015 Baptiste veyssiere
+** Last update Wed Dec  2 00:27:09 2015 Baptiste veyssiere
 */
 
 #include <sys/types.h>
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int     get_nbr_of_lines(int *length, char *file)
+int	get_nbr_of_lines(int *length, char *file)
 {
   int   fd;
   char  buf[2];
@@ -43,7 +43,7 @@ int     get_nbr_of_lines(int *length, char *file)
   close(fd);
 }
 
-void     get_nbr_of_column(int *length, char *file)
+void	get_nbr_of_column(int *length, char *file)
 {
   int   fd;
   char  buf[2];

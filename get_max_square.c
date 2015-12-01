@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 18:50:27 2015 Baptiste veyssiere
-** Last update Wed Dec  2 00:25:10 2015 Baptiste veyssiere
+** Last update Wed Dec  2 00:26:34 2015 Baptiste veyssiere
 */
 
 #include "struct.h"
@@ -52,18 +52,20 @@ void		found_square(char **tab, int length[2], t_coord coord, int *size)
     }
 }
 
-void	draw_the_square(char **tab, int length[2], int *max_size, t_coord coord_max)
+void	draw_the_square(char **tab, int length[2], int *max_size,
+			t_coord coord_max)
 {
   int	i;
   int	j;
 
   i = 0;
-  while(i < length[0])
+  while (i < length[0])
     {
       j = 0;
       while (j < length[1])
 	{
-	  if (i < (coord_max.y + *max_size) && i >= (coord_max.y) && j < (coord_max.x + *max_size) && j >= (coord_max.x))
+	  if (i < (coord_max.y + *max_size) && i >= (coord_max.y) &&
+	      j < (coord_max.x + *max_size) && j >= (coord_max.x))
 	    my_putchar('x');
 	  else
 	    my_putchar(tab[i][j]);
