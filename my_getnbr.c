@@ -5,10 +5,8 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Wed Dec  2 22:43:56 2015 Baptiste veyssiere
-** Last update Wed Dec  2 22:48:59 2015 Baptiste veyssiere
+** Last update Thu Dec  3 00:39:40 2015 Baptiste veyssiere
 */
-
-#include <stdio.h>
 
 int	my_getnbr(char *str)
 {
@@ -34,9 +32,4 @@ int	my_getnbr(char *str)
   if (str[0] == '-')
     nbr *= -1;
   return (nbr);
-}
-
-void	main(int ac, char **av)
-{
-  printf("%d\n", my_getnbr(av[1]));
 }
