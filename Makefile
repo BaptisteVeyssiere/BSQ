@@ -5,8 +5,10 @@
 ## Login   <VEYSSI_B@epitech.net>
 ##
 ## Started on  Tue Dec  1 11:23:47 2015 Baptiste veyssiere
-## Last update Tue Dec  1 19:18:53 2015 Baptiste veyssiere
+## Last update Tue Dec  8 16:19:11 2015 Baptiste veyssiere
 ##
+
+CFLAGS	= -W -Werror -Wall -Wextra -ansi -pedantic
 
 NAME	= bsq
 
@@ -19,7 +21,7 @@ SRCS	= bsq.c \
 OBJS	= $(SRCS:.c=.o)
 
 $(NAME):
-	cc -c $(SRCS) -I./include
+	cc -c $(CFLAGS) $(SRCS) -I./include
 	cc -o $(NAME) $(OBJS)
 
 all: $(NAME)

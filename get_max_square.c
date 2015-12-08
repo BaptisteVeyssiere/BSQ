@@ -5,12 +5,13 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 18:50:27 2015 Baptiste veyssiere
-** Last update Tue Dec  8 16:08:56 2015 Baptiste veyssiere
+** Last update Tue Dec  8 16:42:51 2015 Baptiste veyssiere
 */
 
 #include "struct.h"
+#include "prototypes.h"
 
-int	check_abs(char **tab, int length[2], int *size, t_coord coord)
+int	check_abs(char **tab, int *size, t_coord coord)
 {
   int	i;
   int	j;
@@ -47,7 +48,7 @@ void		found_square(char **tab, int length[2], t_coord coord, int *size)
       if (*size == 0)
 	*size = 1;
       else if (*size + coord.x >= length[0] || *size + coord.y >= length[1]
-	  || check_abs(tab, length, size, coord) == 1)
+	  || check_abs(tab, size, coord) == 1)
 	key = 1;
       else
 	*size += 1;

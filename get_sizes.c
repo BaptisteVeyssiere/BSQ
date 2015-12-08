@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 14:35:16 2015 Baptiste veyssiere
-** Last update Wed Dec  2 00:27:09 2015 Baptiste veyssiere
+** Last update Tue Dec  8 16:46:58 2015 Baptiste veyssiere
 */
 
 #include <sys/types.h>
@@ -13,6 +13,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "prototypes.h"
+
+int	error_function()
+{
+  write(2, "Invalid size of array\n", 22);
+  exit(1);
+}
 
 int	get_nbr_of_lines(int *length, char *file)
 {
@@ -29,10 +36,7 @@ int	get_nbr_of_lines(int *length, char *file)
   while (buf[0] != '\n')
     {
       if (buf[0] < '0' || buf[0] > '9')
-        {
-          write(2, "Invalid size of array\n", 22);
-          exit(1);
-	}
+	error_function();
       lines[i++] = buf[0];
       read(fd, buf, 1);
     }
@@ -41,6 +45,7 @@ int	get_nbr_of_lines(int *length, char *file)
     *length = my_getnbr(lines);
   free(lines);
   close(fd);
+  return (0);
 }
 
 void	get_nbr_of_column(int *length, char *file)

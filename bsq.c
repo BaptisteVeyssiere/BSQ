@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 11:28:26 2015 Baptiste veyssiere
-** Last update Wed Dec  2 00:36:42 2015 Baptiste veyssiere
+** Last update Tue Dec  8 16:47:41 2015 Baptiste veyssiere
 */
 
 #include <sys/types.h>
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include "prototypes.h"
 
-void	free_function(char **tab, int line, int column)
+void	free_function(char **tab, int line)
 {
   int	i;
 
@@ -37,10 +37,7 @@ void	get_the_sizes(int length[2], char *str)
 {
   get_nbr_of_lines(&length[0], str);
   if (length[0] < 1)
-    {
-      write(2, "Please enter a number of line\n", 30);
-      exit(1);
-    }
+    error_function();
   get_nbr_of_column(&length[1], str);
 }
 
@@ -66,6 +63,6 @@ int	main(int ac, char **av)
     tab[i++] = malloc(sizeof(**tab) * length[1]);
   copy_tab(tab, str, length[0], length[1]);
   square(tab, length);
-  free_function(tab, length[0], length[1]);
+  free_function(tab, length[0]);
   return (0);
 }
