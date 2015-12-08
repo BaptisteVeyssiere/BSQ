@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 18:50:27 2015 Baptiste veyssiere
-** Last update Wed Dec  2 00:26:34 2015 Baptiste veyssiere
+** Last update Tue Dec  8 16:08:56 2015 Baptiste veyssiere
 */
 
 #include "struct.h"
@@ -42,9 +42,11 @@ void		found_square(char **tab, int length[2], t_coord coord, int *size)
 
   key = 0;
   *size = 0;
-  while (key == 0 && tab[coord.x][coord.y] == '.')
+  while (key == 0 && tab[coord.y][coord.x] == '.')
     {
-      if (*size + coord.x >= length[1] || *size + coord.y >= length[0]
+      if (*size == 0)
+	*size = 1;
+      else if (*size + coord.x >= length[0] || *size + coord.y >= length[1]
 	  || check_abs(tab, length, size, coord) == 1)
 	key = 1;
       else
@@ -82,11 +84,11 @@ void		get_max_square_at(char **tab, int length[2], int *max_size)
   t_coord	coord_max;
   int		size;
 
-  coord.x = 0;
-  while (coord.x < length[0])
+  coord.y = 0;
+  while (coord.y < length[1])
     {
-      coord.y = 0;
-      while (coord.y < length[1])
+      coord.x = 0;
+      while (coord.x < length[0])
 	{
 	  found_square(tab, length, coord, &size);
 	  if (*max_size < size)
@@ -95,9 +97,9 @@ void		get_max_square_at(char **tab, int length[2], int *max_size)
 	      coord_max.x = coord.x;
 	      coord_max.y = coord.y;
 	    }
-	  coord.y += 1;
+	  coord.x += 1;
 	}
-      coord.x += 1;
+      coord.y += 1;
     }
   draw_the_square(tab, length, max_size, coord_max);
 }
