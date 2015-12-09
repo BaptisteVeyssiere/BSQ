@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 17:18:20 2015 Baptiste veyssiere
-** Last update Wed Dec  9 17:33:49 2015 Baptiste veyssiere
+** Last update Wed Dec  9 18:31:55 2015 Baptiste veyssiere
 */
 
 #ifndef PROTOTYPES_H_
@@ -16,6 +16,12 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_coord
+{
+  int           x;
+  int           y;
+}              t_coord;
 
 int	get_nbr_of_lines(int*, char*);
 int     get_nbr_of_lines(int*, char*);

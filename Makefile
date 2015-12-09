@@ -5,7 +5,7 @@
 ## Login   <VEYSSI_B@epitech.net>
 ##
 ## Started on  Tue Dec  1 11:23:47 2015 Baptiste veyssiere
-## Last update Wed Dec  9 17:03:46 2015 Baptiste veyssiere
+## Last update Wed Dec  9 19:01:46 2015 Baptiste veyssiere
 ##
 
 CFLAGS	= -W -Werror -Wall -Wextra -ansi -pedantic
@@ -33,6 +33,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-
-bis: fclean all
-	rm -f $(OBJS)

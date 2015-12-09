@@ -5,10 +5,9 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 18:50:27 2015 Baptiste veyssiere
-** Last update Wed Dec  9 17:41:59 2015 Baptiste veyssiere
+** Last update Wed Dec  9 18:32:22 2015 Baptiste veyssiere
 */
 
-#include "struct.h"
 #include "prototypes.h"
 
 int	check_abs(char **tab, int *size, t_coord coord)
