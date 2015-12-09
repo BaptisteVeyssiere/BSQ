@@ -5,15 +5,25 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 14:35:16 2015 Baptiste veyssiere
-** Last update Wed Dec  9 17:10:32 2015 Baptiste veyssiere
+** Last update Wed Dec  9 17:35:07 2015 Baptiste veyssiere
 */
 
 #include "prototypes.h"
 
-int	error_function()
+void	line_loop(char buf[2], char *lines, int fd)
 {
-  write(2, "Invalid size of array\n", 22);
-  exit(1);
+  int	i;
+
+  i = 0;
+  while (buf[0] != '\n')
+    {
+      if (buf[0] < '0' || buf[0] > '9')
+        error_function();
+      lines[i++] = buf[0];
+      if (read(fd, buf, 1) == -1)
+        error_function();
+    }
+  lines[i] = 0;
 }
 
 int	get_nbr_of_lines(int *length, char *file)
@@ -21,23 +31,15 @@ int	get_nbr_of_lines(int *length, char *file)
   int   fd;
   char  buf[2];
   char  *lines;
-  int   i;
 
   buf[1] = 0;
-  i = 0;
   if ((fd = open(file, O_RDONLY)) == -1)
     error_function();
-  read(fd, buf, 1);
+  if (read(fd, buf, 1) == -1)
+    error_function();
   if ((lines = malloc(sizeof(*lines) * 11)) == NULL)
     error_function();
-  while (buf[0] != '\n')
-    {
-      if (buf[0] < '0' || buf[0] > '9')
-	error_function();
-      lines[i++] = buf[0];
-      read(fd, buf, 1);
-    }
-  lines[i] = 0;
+  line_loop(buf, lines, fd);
   if (lines[0] != 0)
     *length = my_getnbr(lines);
   free(lines);
@@ -53,13 +55,16 @@ void	get_nbr_of_column(int *length, char *file)
   buf[1] = 0;
   if ((fd = open(file, O_RDONLY)) == -1)
     error_function();
-  read(fd, buf, 1);
+  if (read(fd, buf, 1) == - 1)
+    error_function();
   while (buf[0] != '.' && buf[0] != 'o')
-    read(fd, buf, 1);
+    if (read(fd, buf, 1) == - 1)
+      error_function();
   *length = 0;
   while (buf[0] != '\n')
     {
-      read(fd, buf, 1);
+      if (read(fd, buf, 1) == -1)
+	error_function();
       *length += 1;
     }
   close(fd);
@@ -93,10 +98,13 @@ char	*get_tab(char *file, int lines, int column)
     error_function();
   if ((fd = open(file, O_RDONLY)) == -1)
     error_function();
-  read(fd, buf, 1);
+  if (read(fd, buf, 1) == -1)
+    error_function();
   while (buf[0] != '\n')
-    read(fd, buf, 1);
-  read(fd, buf, lines * (column + 1));
+    if (read(fd, buf, 1) == -1)
+      error_function();
+  if (read(fd, buf, lines * (column + 1)) == -1)
+    error_function();
   buf[lines * (column + 1)] = 0;
   return (buf);
 }

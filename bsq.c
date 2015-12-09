@@ -5,10 +5,16 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 11:28:26 2015 Baptiste veyssiere
-** Last update Wed Dec  9 17:12:02 2015 Baptiste veyssiere
+** Last update Wed Dec  9 17:35:37 2015 Baptiste veyssiere
 */
 
 #include "prototypes.h"
+
+int	error_function()
+{
+  write(2, "Invalid size of array\n", 22);
+  exit(1);
+}
 
 void	free_function(char **tab, int line)
 {

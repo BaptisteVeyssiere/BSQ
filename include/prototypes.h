@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 17:18:20 2015 Baptiste veyssiere
-** Last update Wed Dec  9 15:39:07 2015 Baptiste veyssiere
+** Last update Wed Dec  9 17:33:49 2015 Baptiste veyssiere
 */
 
 #ifndef PROTOTYPES_H_
@@ -26,5 +26,6 @@ void    get_max_square_at(char**, int*, int*);
 void    get_nbr_of_column(int*, char*);
 void    copy_tab(char**, char*, int, int);
 int	error_function();
+void    line_loop(char*, char*, int);
 
 #endif /* !PROTOTYPES_H_ */
