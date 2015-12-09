@@ -5,7 +5,7 @@
 ## Login   <VEYSSI_B@epitech.net>
 ##
 ## Started on  Tue Dec  1 11:23:47 2015 Baptiste veyssiere
-## Last update Tue Dec  8 16:19:11 2015 Baptiste veyssiere
+## Last update Wed Dec  9 17:03:46 2015 Baptiste veyssiere
 ##
 
 CFLAGS	= -W -Werror -Wall -Wextra -ansi -pedantic
@@ -22,7 +22,7 @@ OBJS	= $(SRCS:.c=.o)
 
 $(NAME):
 	cc -c $(CFLAGS) $(SRCS) -I./include
-	cc -o $(NAME) $(OBJS)
+	cc -o $(NAME) $(OBJS) -I./include
 
 all: $(NAME)
 

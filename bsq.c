@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 11:28:26 2015 Baptiste veyssiere
-** Last update Wed Dec  9 15:33:59 2015 Baptiste veyssiere
+** Last update Wed Dec  9 17:12:02 2015 Baptiste veyssiere
 */
 
 #include "prototypes.h"
@@ -53,9 +53,11 @@ int	main(int ac, char **av)
   get_the_sizes(length, av[1]);
   i = 0;
   str = get_tab(av[1], length[0], length[1]);
-  tab = malloc(sizeof(*tab) * length[0]);
+  if ((tab = malloc(sizeof(*tab) * length[0])) == NULL)
+    error_function();
   while (i < length[0])
-    tab[i++] = malloc(sizeof(**tab) * length[1]);
+    if ((tab[i++] = malloc(sizeof(**tab) * length[1])) == NULL)
+      error_function();
   copy_tab(tab, str, length[0], length[1]);
   square(tab, length);
   free_function(tab, length[0]);

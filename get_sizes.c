@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 14:35:16 2015 Baptiste veyssiere
-** Last update Wed Dec  9 15:34:39 2015 Baptiste veyssiere
+** Last update Wed Dec  9 17:10:32 2015 Baptiste veyssiere
 */
 
 #include "prototypes.h"
@@ -28,7 +28,8 @@ int	get_nbr_of_lines(int *length, char *file)
   if ((fd = open(file, O_RDONLY)) == -1)
     error_function();
   read(fd, buf, 1);
-  lines = malloc(sizeof(*lines) * 11);
+  if ((lines = malloc(sizeof(*lines) * 11)) == NULL)
+    error_function();
   while (buf[0] != '\n')
     {
       if (buf[0] < '0' || buf[0] > '9')
@@ -88,7 +89,8 @@ char	*get_tab(char *file, int lines, int column)
   int	fd;
   char	*buf;
 
-  buf = malloc(sizeof(*buf) * (lines * (column + 1) + 1));
+  if ((buf = malloc(sizeof(*buf) * (lines * (column + 1) + 1))) == NULL)
+    error_function();
   if ((fd = open(file, O_RDONLY)) == -1)
     error_function();
   read(fd, buf, 1);
