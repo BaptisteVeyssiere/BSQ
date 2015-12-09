@@ -5,11 +5,12 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 18:50:27 2015 Baptiste veyssiere
-** Last update Tue Dec  8 16:42:51 2015 Baptiste veyssiere
+** Last update Wed Dec  9 11:40:42 2015 Baptiste veyssiere
 */
 
 #include "struct.h"
 #include "prototypes.h"
+#include <stdio.h>
 
 int	check_abs(char **tab, int *size, t_coord coord)
 {
@@ -47,7 +48,7 @@ void		found_square(char **tab, int length[2], t_coord coord, int *size)
     {
       if (*size == 0)
 	*size = 1;
-      else if (*size + coord.x >= length[0] || *size + coord.y >= length[1]
+      else if (*size + coord.x >= length[1] || *size + coord.y >= length[0]
 	  || check_abs(tab, size, coord) == 1)
 	key = 1;
       else
@@ -62,6 +63,7 @@ void	draw_the_square(char **tab, int length[2], int *max_size,
   int	j;
 
   i = 0;
+  printf("%d %d %d\n", coord_max.y, coord_max.x, *max_size);
   while (i < length[0])
     {
       j = 0;
@@ -86,10 +88,10 @@ void		get_max_square_at(char **tab, int length[2], int *max_size)
   int		size;
 
   coord.y = 0;
-  while (coord.y < length[1])
+  while (coord.y < length[0])
     {
       coord.x = 0;
-      while (coord.x < length[0])
+      while (coord.x < length[1])
 	{
 	  found_square(tab, length, coord, &size);
 	  if (*max_size < size)
