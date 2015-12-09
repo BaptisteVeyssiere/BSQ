@@ -5,14 +5,9 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 14:35:16 2015 Baptiste veyssiere
-** Last update Tue Dec  8 16:46:58 2015 Baptiste veyssiere
+** Last update Wed Dec  9 15:34:39 2015 Baptiste veyssiere
 */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "prototypes.h"
 
 int	error_function()
@@ -30,7 +25,8 @@ int	get_nbr_of_lines(int *length, char *file)
 
   buf[1] = 0;
   i = 0;
-  fd = open(file, O_RDONLY);
+  if ((fd = open(file, O_RDONLY)) == -1)
+    error_function();
   read(fd, buf, 1);
   lines = malloc(sizeof(*lines) * 11);
   while (buf[0] != '\n')
@@ -54,7 +50,8 @@ void	get_nbr_of_column(int *length, char *file)
   char  buf[2];
 
   buf[1] = 0;
-  fd = open(file, O_RDONLY);
+  if ((fd = open(file, O_RDONLY)) == -1)
+    error_function();
   read(fd, buf, 1);
   while (buf[0] != '.' && buf[0] != 'o')
     read(fd, buf, 1);
@@ -92,7 +89,8 @@ char	*get_tab(char *file, int lines, int column)
   char	*buf;
 
   buf = malloc(sizeof(*buf) * (lines * (column + 1) + 1));
-  fd = open(file, O_RDONLY);
+  if ((fd = open(file, O_RDONLY)) == -1)
+    error_function();
   read(fd, buf, 1);
   while (buf[0] != '\n')
     read(fd, buf, 1);

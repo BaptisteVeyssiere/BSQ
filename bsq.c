@@ -5,14 +5,9 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 11:28:26 2015 Baptiste veyssiere
-** Last update Tue Dec  8 16:47:41 2015 Baptiste veyssiere
+** Last update Wed Dec  9 15:33:59 2015 Baptiste veyssiere
 */
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "prototypes.h"
 
 void	free_function(char **tab, int line)

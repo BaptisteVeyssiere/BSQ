@@ -5,12 +5,11 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 18:50:27 2015 Baptiste veyssiere
-** Last update Wed Dec  9 11:40:42 2015 Baptiste veyssiere
+** Last update Wed Dec  9 15:34:23 2015 Baptiste veyssiere
 */
 
 #include "struct.h"
 #include "prototypes.h"
-#include <stdio.h>
 
 int	check_abs(char **tab, int *size, t_coord coord)
 {
@@ -63,7 +62,6 @@ void	draw_the_square(char **tab, int length[2], int *max_size,
   int	j;
 
   i = 0;
-  printf("%d %d %d\n", coord_max.y, coord_max.x, *max_size);
   while (i < length[0])
     {
       j = 0;
