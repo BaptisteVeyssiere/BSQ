@@ -5,7 +5,7 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 18:50:27 2015 Baptiste veyssiere
-** Last update Wed Dec  9 15:34:23 2015 Baptiste veyssiere
+** Last update Wed Dec  9 17:41:59 2015 Baptiste veyssiere
 */
 
 #include "struct.h"
@@ -43,6 +43,8 @@ void		found_square(char **tab, int length[2], t_coord coord, int *size)
 
   key = 0;
   *size = 0;
+  if (tab[coord.y][coord.x] != 'o' && tab[coord.y][coord.x] != '.')
+    error_function();
   while (key == 0 && tab[coord.y][coord.x] == '.')
     {
       if (*size == 0)
