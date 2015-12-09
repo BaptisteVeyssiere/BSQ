@@ -5,17 +5,17 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 17:18:20 2015 Baptiste veyssiere
-** Last update Wed Dec  9 15:33:46 2015 Baptiste veyssiere
+** Last update Wed Dec  9 15:39:07 2015 Baptiste veyssiere
 */
 
 #ifndef PROTOTYPES_H_
-#define PROTOTYPES_H_
+# define PROTOTYPES_H_
 
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdlib.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 int	get_nbr_of_lines(int*, char*);
 int     get_nbr_of_lines(int*, char*);
