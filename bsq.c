@@ -5,14 +5,14 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Tue Dec  1 11:28:26 2015 Baptiste veyssiere
-** Last update Wed Dec  9 17:35:37 2015 Baptiste veyssiere
+** Last update Wed Dec  9 17:45:22 2015 Baptiste veyssiere
 */
 
 #include "prototypes.h"
 
 int	error_function()
 {
-  write(2, "Invalid size of array\n", 22);
+  write(2, "Invalid file\n", 13);
   exit(1);
 }
 
