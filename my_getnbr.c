@@ -5,8 +5,10 @@
 ** Login   <VEYSSI_B@epitech.net>
 **
 ** Started on  Wed Dec  2 22:43:56 2015 Baptiste veyssiere
-** Last update Thu Dec  3 00:39:40 2015 Baptiste veyssiere
+** Last update Wed Dec  9 15:45:00 2015 Baptiste veyssiere
 */
+
+#include "prototypes.h"
 
 int	my_getnbr(char *str)
 {
