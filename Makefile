@@ -5,10 +5,10 @@
 ## Login   <VEYSSI_B@epitech.net>
 ##
 ## Started on  Tue Dec  1 11:23:47 2015 Baptiste veyssiere
-## Last update Wed Dec  9 19:01:46 2015 Baptiste veyssiere
+## Last update Thu Dec 10 11:55:02 2015 Baptiste veyssiere
 ##
 
-CFLAGS	= -W -Werror -Wall -Wextra -ansi -pedantic
+CFLAGS	= -W -Werror -Wall -Wextra -ansi -pedantic -I./include
 
 NAME	= bsq
 
@@ -20,9 +20,10 @@ SRCS	= bsq.c \
 
 OBJS	= $(SRCS:.c=.o)
 
-$(NAME):
-	cc -c $(CFLAGS) $(SRCS) -I./include
-	cc -o $(NAME) $(OBJS) -I./include
+CC	= gcc
+
+$(NAME): $(OBJS)
+	$(CC) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
